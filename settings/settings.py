@@ -119,9 +119,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # SMTP
 
 EMAIL_USE_TLS = True
-EMAIL_HOST ='smtp.gmail.com'
-EMAIL_HOST_USER = 'danilbelenkin07@gmail.com'
-EMAIL_HOST_PASSWORD = 'qdvd zrsu sljy oxho'
+EMAIL_HOST = os.getenv('EMAIL_HOST')
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 EMAIL_PORT = 587
 
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
@@ -130,8 +130,8 @@ EMAIL_ADMIN = EMAIL_HOST_USER
 
 
 # CELERY 6 REDIS
-REDIS_HOST = '0.0.0.0'
-REDIS_PORT = '6379'
+REDIS_HOST = os.getenv('REDIS_HOST')
+REDIS_PORT = os.getenv('REDIS_PORT')
 CELERY_BROKER_URL = 'redis://' + REDIS_HOST + ':' + REDIS_PORT + '/0'
 CELERY_BROKER_TRANSPORT_OPTIONS = {'visibility_timeout': 3600}
 CELERY_RESULT_BACKEND ='redis://' + REDIS_HOST + ':' + REDIS_PORT + '/0'
