@@ -3,10 +3,10 @@ from .models import Contact
 from .service import send
 from django.core.mail import send_mail
 
+
 @app.task
 def send_spam_email(user_email):
     send(user_email)
-
 
 
 @app.task

@@ -1,9 +1,8 @@
-from django.shortcuts import render
 from django.views.generic import CreateView
 from .models import Contact
 from .forms import ContactForm
-from .service import send
 from .tasks import send_spam_email
+
 
 class ContactView(CreateView):
     model = Contact
