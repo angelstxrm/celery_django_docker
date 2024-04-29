@@ -1,7 +1,9 @@
+from django.core.mail import send_mail
+
 from settings.celery import app
+
 from .models import Contact
 from .service import send
-from django.core.mail import send_mail
 
 
 @app.task
